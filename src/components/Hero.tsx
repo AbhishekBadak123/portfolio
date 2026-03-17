@@ -29,6 +29,10 @@ const Hero: React.FC = () => {
     { label: 'Cloud Projects', value: '25+', icon: Cloud },
   ];
 
+  const scrollToContact = () => {
+    document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
   return (
     <section id="hero" className="min-h-screen flex items-center justify-center py-20 relative overflow-hidden">
       {/* Animated Background Elements */}
@@ -83,7 +87,10 @@ const Hero: React.FC = () => {
 
           {/* Action Buttons */}
           <div className="flex flex-wrap gap-4">
-            <button className="group bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 px-6 py-3 rounded-full font-medium transition-all duration-200 transform hover:scale-105 flex items-center space-x-2">
+            <button
+              onClick={scrollToContact}
+              className="group bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 px-6 py-3 rounded-full font-medium transition-all duration-200 transform hover:scale-105 flex items-center space-x-2"
+            >
               <Download size={20} />
               <span>Download Resume</span>
             </button>

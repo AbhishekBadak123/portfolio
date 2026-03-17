@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { 
   Server, Cloud, Code, Database, GitBranch, Shield, 
-  Container, Zap, Monitor, Settings, Cpu, Network,
+  Container, Monitor, Settings, Network,
   CheckCircle, ArrowRight
 } from 'lucide-react';
 
@@ -216,7 +216,7 @@ const Skills: React.FC = () => {
             <h3 className="text-2xl font-bold text-candy-pink mb-6 text-center">Certifications & Goals</h3>
             
             <div className="grid md:grid-cols-2 gap-4">
-              {certifications.map((cert, index) => (
+              {certifications.map((cert) => (
                 <div
                   key={cert}
                   className="flex items-center space-x-3 p-3 bg-white/5 rounded-xl border border-white/10 hover:border-candy-pink/40 transition-all duration-300"

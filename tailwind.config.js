@@ -5,6 +5,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
+        paytone: ['"Paytone One"', 'cursive'],
         'poppins': ['Poppins', 'sans-serif'],
         'rajdhani': ['Rajdhani', 'sans-serif'],
         'fira-code': ['Fira Code', 'monospace'],
@@ -14,6 +15,8 @@ export default {
         'fadeInUp': 'fadeInUp 0.6s ease-out',
         'spin-slow': 'spin 3s linear infinite',
         'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        blob: 'blob 8s ease-in-out infinite',
+        'neon-flicker': 'neon-flicker 2.8s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
@@ -24,11 +27,33 @@ export default {
           '0%': { opacity: '0', transform: 'translateY(30px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
+        blob: {
+          '0%, 100%': { transform: 'translate3d(0, 0, 0) scale(1)' },
+          '33%': { transform: 'translate3d(18px, -24px, 0) scale(1.05)' },
+          '66%': { transform: 'translate3d(-14px, 12px, 0) scale(0.97)' },
+        },
+        'neon-flicker': {
+          '0%, 100%': { opacity: '1', filter: 'brightness(1)' },
+          '45%': { opacity: '0.92', filter: 'brightness(1.08)' },
+          '50%': { opacity: '0.82', filter: 'brightness(0.96)' },
+          '55%': { opacity: '0.95', filter: 'brightness(1.04)' },
+        },
       },
       backdropBlur: {
         xs: '2px',
       },
+      boxShadow: {
+        'neon-pink': '0 0 12px rgba(255, 72, 185, 0.45)',
+        'neon-green': '0 0 12px rgba(18, 206, 106, 0.45)',
+        'neon-purple': '0 0 16px rgba(80, 32, 122, 0.35)',
+      },
+      dropShadow: {
+        neonPink: '0 0 10px rgba(255, 72, 185, 0.6)',
+      },
       colors: {
+        offwhite: '#F7F7FB',
+        'candy-pink': '#FF48B9',
+        'candy-green': '#12CE6A',
         'electric-purple': {
           400: '#b266ff',
           500: '#8d33ff',

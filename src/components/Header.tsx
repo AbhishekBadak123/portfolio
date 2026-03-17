@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, Sun, Moon, Download, Github, Linkedin, Instagram } from 'lucide-react';
-import { useTheme } from '../contexts/ThemeContext';
+import { useTheme } from '../contexts/useTheme';
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const { isDark, toggleTheme } = useTheme();
+
+  const scrollToContact = () => {
+    document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
+    setIsMenuOpen(false);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -87,7 +92,10 @@ const Header: React.FC = () => {
             </button>
 
             {/* Download Resume */}
-            <button className="hidden md:flex items-center space-x-2 bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 px-4 py-2 rounded-full transition-all duration-200 transform hover:scale-105">
+            <button
+              onClick={scrollToContact}
+              className="hidden md:flex items-center space-x-2 bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 px-4 py-2 rounded-full transition-all duration-200 transform hover:scale-105"
+            >
               <Download size={16} />
               <span className="text-sm font-medium">Resume</span>
             </button>
@@ -130,7 +138,10 @@ const Header: React.FC = () => {
                     </a>
                   ))}
                 </div>
-                <button className="flex items-center space-x-2 bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 px-4 py-2 rounded-full transition-all duration-200 w-fit">
+                <button
+                  onClick={scrollToContact}
+                  className="flex items-center space-x-2 bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 px-4 py-2 rounded-full transition-all duration-200 w-fit"
+                >
                   <Download size={16} />
                   <span className="text-sm font-medium">Download Resume</span>
                 </button>

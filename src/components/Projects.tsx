@@ -13,9 +13,8 @@ const filterTags = [
   'All',
   'Docker',
   'Python + Docker',
-  'Linux Terminal',
+  'Linux',
   'Python',
-  'GitHub',
   'JavaScript',
   'Blog',
 ];
@@ -26,10 +25,12 @@ const Projects: React.FC = () => {
   const filteredProjects =
     activeTag === 'All'
       ? projectsData
-      : projectsData.filter((p) => p.category === activeTag);
+      : projectsData.filter(
+          (project) => project.category === activeTag || project.type.toLowerCase() === activeTag.toLowerCase()
+        );
 
   return (
-    <section id="dashboard-projects" className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <section id="projects" className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-10">
@@ -61,7 +62,7 @@ const Projects: React.FC = () => {
         </div>
         {/* Projects Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project, idx) => {
+          {filteredProjects.map((project) => {
             // Determine card and button styles based on category
             const cardGradient = categoryGradients[project.category] || 'bg-white/5';
             let buttonGradient = 'bg-black/30 hover:bg-black/60';
@@ -137,6 +138,11 @@ const Projects: React.FC = () => {
             );
           })}
         </div>
+        {filteredProjects.length === 0 && (
+          <div className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6 text-center text-white/70">
+            No projects match this filter yet.
+          </div>
+        )}
       </div>
     </section>
   );

@@ -112,7 +112,7 @@ const About: React.FC = () => {
                   <div className="space-y-2">
                     <h4 className="font-semibold text-candy-pink">BSc (Hons) Computer Science</h4>
                     <p className="text-white/80">MGM University - Pathrikar College</p>
-                    <p className="text-white/60">3rd Year Student • 2022-2025</p>
+                    <p className="text-white/60">3rd Year Student | 2022-2025</p>
                   </div>
                 </div>
 
@@ -203,7 +203,7 @@ const About: React.FC = () => {
             <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/10">
               <h3 className="text-xl font-bold text-candy-pink mb-6">My Passions</h3>
               <div className="grid grid-cols-2 gap-4">
-                {passions.map((passion, index) => (
+                {passions.map((passion) => (
                   <div
                     key={passion.label}
                     className="group cursor-pointer p-4 bg-white/5 rounded-xl border border-white/10 hover:border-candy-pink/40 transition-all duration-300 hover:scale-105"
