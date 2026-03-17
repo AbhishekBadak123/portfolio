@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import AnimatedShaderHero from '@/components/ui/animated-shader-hero';
 import About from './components/About';
 import BackgroundEffects from './components/BackgroundEffects';
 import Contact from './components/Contact';
 import Header from './components/Header';
-import Hero from './components/Hero';
 import Projects from './components/Projects';
 import Skills from './components/Skills';
 import ThemeProvider from './contexts/ThemeContext';
@@ -49,7 +49,27 @@ function App() {
         <BackgroundEffects />
         <Header />
         <main className="relative z-10">
-          <Hero />
+          <AnimatedShaderHero
+            trustBadge={{
+              text: 'Open to opportunities',
+              icons: ['🚀'],
+            }}
+            headline={{
+              line1: "Hi, I'm Abhishek",
+              line2: 'DevOps & Cloud Engineer',
+            }}
+            subtitle="Building scalable systems with Docker, Kubernetes, CI/CD, and cloud infrastructure that can grow with modern teams."
+            buttons={{
+              primary: {
+                text: 'Contact Me',
+                onClick: () => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' }),
+              },
+              secondary: {
+                text: 'View GitHub',
+                onClick: () => window.open('https://github.com/abhibadak', '_blank', 'noopener,noreferrer'),
+              },
+            }}
+          />
           <About />
           <Skills />
           <Projects />
