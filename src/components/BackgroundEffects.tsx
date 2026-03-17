@@ -30,7 +30,7 @@ const BackgroundEffects: React.FC = () => {
       color: string;
     }> = [];
 
-    const colors = ['#8d33ff', '#b266ff', '#00f5d4', '#ff6b35'];
+    const colors = ['#FF48B9', '#12CE6A', '#50207A', '#B07CFF'];
 
     // Create particles
     for (let i = 0; i < 50; i++) {
@@ -47,7 +47,7 @@ const BackgroundEffects: React.FC = () => {
 
     // Animation loop
     const animate = () => {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.06)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       particles.forEach((particle, index) => {

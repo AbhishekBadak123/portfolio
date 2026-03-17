@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+<<<<<<< HEAD
 /* Animated Shader Hero Animations */
 @keyframes fade-in-down {
   from {
@@ -60,3 +61,28 @@
   background-size: 200% 200%;
   animation: gradient-shift 3s ease infinite;
 }
+=======
+@layer base {
+  html, body, #root {
+    height: 100%;
+    background: radial-gradient(1200px 800px at 20% 10%, rgba(255,72,185,0.18), transparent 60%),
+                radial-gradient(1000px 700px at 80% 0%, rgba(18,206,106,0.12), transparent 60%),
+                linear-gradient(180deg, #12071F 0%, #0B0615 100%);
+    color: theme('colors.offwhite');
+  }
+}
+
+@layer utilities {
+  .text-neon-pink { text-shadow: 0 0 8px #FF48B9, 0 0 16px #FF48B9; }
+  .text-neon-green { text-shadow: 0 0 8px #12CE6A, 0 0 16px #12CE6A; }
+  .text-neon-purple { text-shadow: 0 0 8px #50207A, 0 0 16px #50207A; }
+  .outline-text {
+    -webkit-text-stroke: 2px #FF48B9;
+    color: transparent;
+  }
+  .focus-neon:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(255,72,185,0.35), 0 0 0 8px rgba(255,72,185,0.15);
+  }
+}
+>>>>>>> a1d029f1f5f47279e183cc76a08b98302150f311

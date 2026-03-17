@@ -117,10 +117,10 @@ const Skills: React.FC = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className={`text-center mb-16 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <h2 className="text-4xl md:text-5xl font-bold font-rajdhani mb-4 bg-gradient-to-r from-white to-purple-300 bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-paytone mb-4 text-candy-pink drop-shadow-neonPink">
             Skills & Expertise
           </h2>
-          <p className="text-white/60 max-w-2xl mx-auto">
+          <p className="text-white/80 max-w-2xl mx-auto">
             Comprehensive toolkit for modern DevOps and cloud infrastructure management
           </p>
         </div>
@@ -135,10 +135,10 @@ const Skills: React.FC = () => {
               }`}
               style={{ transitionDelay: `${categoryIndex * 100}ms` }}
             >
-              <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 hover:border-purple-400/50 transition-all duration-300 h-full">
+              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:border-candy-pink/40 transition-all duration-300 h-full">
                 {/* Category Header */}
                 <div className="flex items-center space-x-3 mb-6">
-                  <div className={`w-12 h-12 bg-gradient-to-r ${category.color} rounded-xl flex items-center justify-center`}>
+                  <div className={`w-12 h-12 bg-gradient-to-r ${category.color} rounded-xl flex items-center justify-center shadow-neon-purple`}>
                     <category.icon size={24} className="text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-white">{category.name}</h3>
@@ -183,8 +183,8 @@ const Skills: React.FC = () => {
 
         {/* CI/CD Pipeline Animation */}
         <div className={`mb-16 transform transition-all duration-1000 delay-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-            <h3 className="text-2xl font-bold text-white mb-6 text-center">My DevOps Workflow</h3>
+          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/10">
+            <h3 className="text-2xl font-bold text-candy-pink mb-6 text-center">My DevOps Workflow</h3>
             
             <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8">
               {[
@@ -196,7 +196,7 @@ const Skills: React.FC = () => {
               ].map((step, index) => (
                 <React.Fragment key={step.name}>
                   <div className="group flex flex-col items-center space-y-2">
-                    <div className={`w-16 h-16 bg-gradient-to-r ${step.color} rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                    <div className={`w-16 h-16 bg-gradient-to-r ${step.color} rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-neon-purple`}>
                       <step.icon size={28} className="text-white" />
                     </div>
                     <span className="text-white font-medium">{step.name}</span>
@@ -212,16 +212,16 @@ const Skills: React.FC = () => {
 
         {/* Certifications */}
         <div className={`transform transition-all duration-1000 delay-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-            <h3 className="text-2xl font-bold text-white mb-6 text-center">Certifications & Goals</h3>
+          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/10">
+            <h3 className="text-2xl font-bold text-candy-pink mb-6 text-center">Certifications & Goals</h3>
             
             <div className="grid md:grid-cols-2 gap-4">
               {certifications.map((cert, index) => (
                 <div
                   key={cert}
-                  className="flex items-center space-x-3 p-3 bg-white/5 rounded-xl border border-white/10 hover:border-purple-400/50 transition-all duration-300"
+                  className="flex items-center space-x-3 p-3 bg-white/5 rounded-xl border border-white/10 hover:border-candy-pink/40 transition-all duration-300"
                 >
-                  <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full flex items-center justify-center flex-shrink-0">
+                  <div className="w-8 h-8 bg-candy-pink rounded-full flex items-center justify-center flex-shrink-0 shadow-neon-pink">
                     <CheckCircle size={16} className="text-white" />
                   </div>
                   <span className="text-white/80">{cert}</span>

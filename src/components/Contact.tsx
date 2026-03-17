@@ -179,10 +179,10 @@ const Contact: React.FC = () => {
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className={`text-center mb-16 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <h2 className="text-4xl md:text-5xl font-bold font-rajdhani mb-4 bg-gradient-to-r from-white to-purple-300 bg-clip-text text-transparent">
-            Get In Touch
+          <h2 className="text-4xl md:text-5xl font-paytone mb-4 text-candy-pink drop-shadow-neonPink">
+            Let's Connect
           </h2>
-          <p className="text-white/60 max-w-2xl mx-auto">
+          <p className="text-white/80 max-w-2xl mx-auto">
             Ready to collaborate on your next DevOps project? Let's connect and build something amazing together!
           </p>
         </div>
@@ -191,18 +191,18 @@ const Contact: React.FC = () => {
           {/* Contact Information */}
           <div className={`space-y-8 transform transition-all duration-1000 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
             {/* Status Card */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/10">
               <div className="flex items-center space-x-3 mb-4">
                 <div className="flex items-center space-x-2">
                   <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
-                  <span className="text-green-400 font-medium">Available</span>
+                  <span className="text-candy-green font-medium">Available</span>
                 </div>
                 <div className="flex items-center space-x-2 text-white/60">
                   <Clock size={16} />
                   <span className="text-sm">{currentTime.toLocaleTimeString()}</span>
                 </div>
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">Let's Build Something Great!</h3>
+              <h3 className="text-xl font-bold text-candy-pink mb-2">Let's Build Something Great!</h3>
               <p className="text-white/70">
                 I'm currently seeking opportunities in DevOps and Cloud Engineering. 
                 Open to freelance projects, internships, and full-time positions.
@@ -215,13 +215,13 @@ const Contact: React.FC = () => {
                 <a
                   key={contact.label}
                   href={contact.href}
-                  className={`group block p-4 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 hover:border-purple-400/50 transition-all duration-300 hover:scale-105 transform transition-all duration-1000 ${
+                  className={`group block p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/10 hover:border-candy-pink/40 transition-all duration-300 hover:scale-105 transform transition-all duration-1000 ${
                     isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                   }`}
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
                   <div className="flex items-center space-x-3">
-                    <div className={`w-10 h-10 bg-gradient-to-r ${contact.color} rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                    <div className={`w-10 h-10 bg-gradient-to-r ${contact.color} rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-neon-purple`}>
                       <contact.icon size={20} className="text-white" />
                     </div>
                     <div>
@@ -234,8 +234,8 @@ const Contact: React.FC = () => {
             </div>
 
             {/* Social Links */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-              <h3 className="text-xl font-bold text-white mb-4">Connect With Me</h3>
+            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/10">
+              <h3 className="text-xl font-bold text-candy-pink mb-4">Connect With Me</h3>
               <div className="grid grid-cols-2 gap-3">
                 {socialLinks.map((social, index) => (
                   <a
@@ -243,12 +243,12 @@ const Contact: React.FC = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`group flex items-center space-x-3 p-3 bg-white/5 rounded-xl border border-white/10 hover:border-purple-400/50 transition-all duration-300 hover:scale-105 transform transition-all duration-1000 ${
+                    className={`group flex items-center space-x-3 p-3 bg-white/5 rounded-xl border border-white/10 hover:border-candy-pink/40 transition-all duration-300 hover:scale-105 transform transition-all duration-1000 ${
                       isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                     }`}
                     style={{ transitionDelay: `${400 + index * 100}ms` }}
                   >
-                    <div className={`w-10 h-10 bg-gradient-to-r ${social.color} rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                    <div className={`w-10 h-10 bg-gradient-to-r ${social.color} rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-neon-purple`}>
                       <social.icon size={20} className="text-white" />
                     </div>
                     <div className="min-w-0 flex-1">
@@ -263,9 +263,9 @@ const Contact: React.FC = () => {
 
           {/* Terminal Interface */}
           <div className={`transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
-            <div className="bg-black/40 backdrop-blur-sm rounded-2xl border border-white/20 overflow-hidden">
+            <div className="bg-black/40 backdrop-blur-md rounded-2xl border border-white/10 overflow-hidden shadow-neon-purple">
               {/* Terminal Header */}
-              <div className="bg-white/10 px-4 py-3 border-b border-white/20">
+              <div className="bg-white/10 px-4 py-3 border-b border-white/10">
                 <div className="flex items-center space-x-2">
                   <div className="flex space-x-2">
                     <div className="w-3 h-3 bg-red-500 rounded-full"></div>
@@ -289,7 +289,7 @@ const Contact: React.FC = () => {
               </div>
 
               {/* Terminal Input */}
-              <form onSubmit={handleTerminalSubmit} className="border-t border-white/20 p-4">
+              <form onSubmit={handleTerminalSubmit} className="border-t border-white/10 p-4">
                 <div className="flex items-center space-x-2">
                   <span className="text-green-400 font-fira-code">$</span>
                   <input
@@ -297,11 +297,11 @@ const Contact: React.FC = () => {
                     value={terminalInput}
                     onChange={(e) => setTerminalInput(e.target.value)}
                     placeholder="Type a command..."
-                    className="flex-1 bg-transparent text-white outline-none font-fira-code placeholder-white/40"
+                    className="flex-1 bg-transparent text-white outline-none font-fira-code placeholder-white/40 focus-neon"
                   />
                   <button
                     type="submit"
-                    className="w-8 h-8 bg-purple-500 hover:bg-purple-600 rounded-full flex items-center justify-center transition-colors"
+                    className="w-8 h-8 bg-candy-pink hover:brightness-110 rounded-full flex items-center justify-center transition-colors shadow-neon-pink"
                   >
                     <Send size={16} className="text-white" />
                   </button>
@@ -313,14 +313,14 @@ const Contact: React.FC = () => {
             <div className="mt-6 grid grid-cols-2 gap-4">
               <button
                 onClick={() => handleTerminalCommand('hire --name "Visitor" --message "Hello!"')}
-                className="bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 px-4 py-3 rounded-xl font-medium transition-all duration-200 transform hover:scale-105 flex items-center justify-center space-x-2"
+                className="bg-candy-green text-black hover:brightness-110 px-4 py-3 rounded-xl font-semibold transition-all duration-200 transform hover:scale-105 flex items-center justify-center space-x-2 shadow-neon-green animate-neon-flicker"
               >
                 <MessageCircle size={16} />
                 <span>Quick Hire</span>
               </button>
               <button
                 onClick={() => handleTerminalCommand('status')}
-                className="bg-white/10 hover:bg-white/20 border border-white/20 hover:border-purple-400/50 px-4 py-3 rounded-xl font-medium transition-all duration-200 transform hover:scale-105 flex items-center justify-center space-x-2"
+                className="bg-white/10 hover:bg-white/20 border border-white/10 hover:border-candy-pink/40 px-4 py-3 rounded-xl font-medium transition-all duration-200 transform hover:scale-105 flex items-center justify-center space-x-2"
               >
                 <CheckCircle size={16} />
                 <span>Check Status</span>
