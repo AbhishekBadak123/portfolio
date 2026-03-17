@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
-import Hero from './components/Hero';
+import AnimatedShaderHero from '@/components/ui/animated-shader-hero';
 import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
@@ -38,7 +38,27 @@ function App() {
         <BackgroundEffects />
         <Header />
         <main className="relative z-10">
-          <Hero />
+          <AnimatedShaderHero
+            trustBadge={{
+              text: 'Open to opportunities',
+              icons: ['🚀'],
+            }}
+            headline={{
+              line1: "Hi, I'm Abhishek",
+              line2: 'DevOps & Cloud Engineer',
+            }}
+            subtitle="Building scalable systems with Docker, Kubernetes and cloud infrastructure."
+            buttons={{
+              primary: {
+                text: 'Download Resume',
+                onClick: () => window.open('#contact', '_self'),
+              },
+              secondary: {
+                text: 'View GitHub',
+                onClick: () => window.open('https://github.com/abhibadak', '_blank'),
+              },
+            }}
+          />
           <About />
           <Skills />
           <Projects />
@@ -49,4 +69,4 @@ function App() {
   );
 }
 
-export default App;
+export default App;
