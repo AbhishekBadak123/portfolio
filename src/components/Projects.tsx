@@ -30,15 +30,15 @@ const Projects: React.FC = () => {
         );
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+    <section id="projects" className="py-20 relative overflow-hidden text-offwhite">
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-10">
           <h2 className="text-4xl md:text-5xl font-bold font-rajdhani mb-2">
-            <span className="text-white">Hands-On</span>{' '}
-            <span className="text-purple-400">Tasks</span>
+            <span className="text-offwhite">Hands-On</span>{' '}
+            <span className="text-candy-pink">Tasks</span>
           </h2>
-          <p className="text-white/70 max-w-xl mx-auto">
+          <p className="text-offwhite/82 max-w-xl mx-auto text-base md:text-lg">
             Explore practical DevOps, Linux, and coding challenges.
           </p>
         </div>
@@ -50,8 +50,8 @@ const Projects: React.FC = () => {
               className={`px-4 py-2 rounded-full font-medium border transition-all duration-200 text-sm
                 ${
                   activeTag === tag
-                    ? 'bg-purple-500 text-white border-purple-500 shadow-lg'
-                    : 'bg-white/10 text-white border-white/20 hover:bg-purple-400/20 hover:text-purple-200'
+                    ? 'bg-candy-pink text-black border-candy-pink shadow-neon-pink'
+                    : 'bg-slate-950/38 text-offwhite border-white/15 hover:bg-candy-pink/15 hover:text-offwhite'
                 }
               `}
               onClick={() => setActiveTag(tag)}
@@ -64,7 +64,7 @@ const Projects: React.FC = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => {
             // Determine card and button styles based on category
-            const cardGradient = categoryGradients[project.category] || 'bg-white/5';
+            const cardGradient = categoryGradients[project.category] || 'bg-slate-950/42';
             let buttonGradient = 'bg-black/30 hover:bg-black/60';
             let buttonText = 'text-white';
             if (project.category === 'JavaScript') {
@@ -80,14 +80,14 @@ const Projects: React.FC = () => {
             return (
               <div
                 key={project.title}
-                className={`rounded-2xl shadow-lg p-6 flex flex-col justify-between transition-transform duration-200 hover:scale-105 hover:shadow-2xl border border-white/10 group ${cardGradient}`}
+                className={`rounded-2xl shadow-lg p-6 flex flex-col justify-between transition-transform duration-200 hover:scale-105 hover:shadow-2xl border border-white/12 backdrop-blur-lg group ${cardGradient}`}
               >
                 <div>
                   <h3
                     className={`text-xl font-bold mb-2 transition-colors ${
                       project.category === 'Python'
                         ? 'text-slate-800 group-hover:text-purple-500'
-                        : 'text-white group-hover:text-purple-200'
+                        : 'text-offwhite group-hover:text-orange-100'
                     }`}
                   >
                     {project.title}
@@ -95,7 +95,7 @@ const Projects: React.FC = () => {
                   {project.description && (
                     <p
                       className={`text-sm mb-4 ${
-                        project.category === 'Python' ? 'text-slate-600' : 'text-white/80'
+                        project.category === 'Python' ? 'text-slate-700' : 'text-offwhite/82'
                       }`}
                     >
                       {project.description}
@@ -139,7 +139,7 @@ const Projects: React.FC = () => {
           })}
         </div>
         {filteredProjects.length === 0 && (
-          <div className="mt-10 rounded-2xl border border-white/10 bg-white/5 p-6 text-center text-white/70">
+          <div className="mt-10 rounded-2xl border border-white/12 bg-slate-950/40 p-6 text-center text-offwhite/75 backdrop-blur-lg">
             No projects match this filter yet.
           </div>
         )}

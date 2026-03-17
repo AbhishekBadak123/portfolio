@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import AnimatedShaderHero from '@/components/ui/animated-shader-hero';
+import AnimatedShaderHero, { ShaderBackgroundCanvas } from '@/components/ui/animated-shader-hero';
 import About from './components/About';
 import BackgroundEffects from './components/BackgroundEffects';
 import Contact from './components/Contact';
@@ -42,14 +42,17 @@ function App() {
       <div
         className="min-h-screen overflow-x-hidden text-white"
         style={{
-          background:
-            'radial-gradient(1200px 800px at 10% 0%, rgba(255,72,185,0.15), transparent 60%), radial-gradient(1000px 700px at 90% -10%, rgba(18,206,106,0.10), transparent 60%), linear-gradient(180deg, #12071F 0%, #0B0615 100%)',
+          background: 'linear-gradient(180deg, #0b0615 0%, #080510 100%)',
         }}
       >
-        <BackgroundEffects />
+        <div className="fixed inset-0 z-0">
+          <ShaderBackgroundCanvas className="opacity-55" />
+          <BackgroundEffects />
+        </div>
         <Header />
         <main className="relative z-10">
           <AnimatedShaderHero
+            className="bg-transparent"
             trustBadge={{
               text: 'Open to opportunities',
               icons: ['🚀'],

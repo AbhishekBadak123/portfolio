@@ -169,7 +169,7 @@ const Contact: React.FC = () => {
   ];
 
   return (
-    <section id="contact" ref={sectionRef} className="py-20 relative overflow-hidden">
+    <section id="contact" ref={sectionRef} className="py-20 relative overflow-hidden text-offwhite">
       {/* Background Effects */}
       <div className="absolute inset-0 opacity-5">
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
@@ -182,7 +182,7 @@ const Contact: React.FC = () => {
           <h2 className="text-4xl md:text-5xl font-paytone mb-4 text-candy-pink drop-shadow-neonPink">
             Let's Connect
           </h2>
-          <p className="text-white/80 max-w-2xl mx-auto">
+          <p className="text-offwhite/85 max-w-2xl mx-auto text-base md:text-lg">
             Ready to collaborate on your next DevOps project? Let's connect and build something amazing together!
           </p>
         </div>
@@ -191,19 +191,19 @@ const Contact: React.FC = () => {
           {/* Contact Information */}
           <div className={`space-y-8 transform transition-all duration-1000 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
             {/* Status Card */}
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/10">
+            <div className="bg-slate-950/42 backdrop-blur-lg rounded-2xl p-6 border border-white/12">
               <div className="flex items-center space-x-3 mb-4">
                 <div className="flex items-center space-x-2">
                   <div className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></div>
                   <span className="text-candy-green font-medium">Available</span>
                 </div>
-                <div className="flex items-center space-x-2 text-white/60">
+                <div className="flex items-center space-x-2 text-offwhite/65">
                   <Clock size={16} />
                   <span className="text-sm">{currentTime.toLocaleTimeString()}</span>
                 </div>
               </div>
               <h3 className="text-xl font-bold text-candy-pink mb-2">Let's Build Something Great!</h3>
-              <p className="text-white/70">
+              <p className="text-offwhite/78">
                 I'm currently seeking opportunities in DevOps and Cloud Engineering. 
                 Open to freelance projects, internships, and full-time positions.
               </p>
@@ -215,7 +215,7 @@ const Contact: React.FC = () => {
                 <a
                   key={contact.label}
                   href={contact.href}
-                  className={`group block p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/10 hover:border-candy-pink/40 transition-all duration-300 hover:scale-105 transform transition-all duration-1000 ${
+                  className={`group block p-4 bg-slate-950/42 backdrop-blur-lg rounded-xl border border-white/12 hover:border-candy-pink/40 transition-all duration-300 hover:scale-105 transform transition-all duration-1000 ${
                     isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                   }`}
                   style={{ transitionDelay: `${index * 100}ms` }}
@@ -225,8 +225,8 @@ const Contact: React.FC = () => {
                       <contact.icon size={20} className="text-white" />
                     </div>
                     <div>
-                      <div className="text-sm text-white/60">{contact.label}</div>
-                      <div className="text-white font-medium">{contact.value}</div>
+                      <div className="text-sm text-offwhite/65">{contact.label}</div>
+                      <div className="text-offwhite font-medium">{contact.value}</div>
                     </div>
                   </div>
                 </a>
@@ -234,7 +234,7 @@ const Contact: React.FC = () => {
             </div>
 
             {/* Social Links */}
-            <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/10">
+            <div className="bg-slate-950/42 backdrop-blur-lg rounded-2xl p-6 border border-white/12">
               <h3 className="text-xl font-bold text-candy-pink mb-4">Connect With Me</h3>
               <div className="grid grid-cols-2 gap-3">
                 {socialLinks.map((social, index) => (
@@ -243,7 +243,7 @@ const Contact: React.FC = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`group flex items-center space-x-3 p-3 bg-white/5 rounded-xl border border-white/10 hover:border-candy-pink/40 transition-all duration-300 hover:scale-105 transform transition-all duration-1000 ${
+                    className={`group flex items-center space-x-3 p-3 bg-white/6 rounded-xl border border-white/12 hover:border-candy-pink/40 transition-all duration-300 hover:scale-105 transform transition-all duration-1000 ${
                       isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
                     }`}
                     style={{ transitionDelay: `${400 + index * 100}ms` }}
@@ -252,8 +252,8 @@ const Contact: React.FC = () => {
                       <social.icon size={20} className="text-white" />
                     </div>
                     <div className="min-w-0 flex-1">
-                      <div className="text-white font-medium text-sm">{social.label}</div>
-                      <div className="text-white/60 text-xs truncate">{social.username}</div>
+                      <div className="text-offwhite font-medium text-sm">{social.label}</div>
+                      <div className="text-offwhite/65 text-xs truncate">{social.username}</div>
                     </div>
                   </a>
                 ))}
@@ -263,16 +263,16 @@ const Contact: React.FC = () => {
 
           {/* Terminal Interface */}
           <div className={`transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
-            <div className="bg-black/40 backdrop-blur-md rounded-2xl border border-white/10 overflow-hidden shadow-neon-purple">
+            <div className="bg-slate-950/60 backdrop-blur-xl rounded-2xl border border-white/12 overflow-hidden shadow-neon-purple">
               {/* Terminal Header */}
-              <div className="bg-white/10 px-4 py-3 border-b border-white/10">
+              <div className="bg-white/8 px-4 py-3 border-b border-white/12">
                 <div className="flex items-center space-x-2">
                   <div className="flex space-x-2">
                     <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                     <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                     <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                   </div>
-                  <div className="flex items-center space-x-2 text-white/60">
+                  <div className="flex items-center space-x-2 text-offwhite/65">
                     <Terminal size={16} />
                     <span className="text-sm font-fira-code">badakabhishek170@gmail.com</span>
                   </div>
@@ -282,14 +282,14 @@ const Contact: React.FC = () => {
               {/* Terminal Body */}
               <div className="p-4 h-80 overflow-y-auto font-fira-code text-sm">
                 {terminalOutput.map((line, index) => (
-                  <div key={index} className={`${line.startsWith('$') ? 'text-green-400' : 'text-white/80'} whitespace-pre-wrap`}>
+                  <div key={index} className={`${line.startsWith('$') ? 'text-green-400' : 'text-offwhite/85'} whitespace-pre-wrap`}>
                     {line}
                   </div>
                 ))}
               </div>
 
               {/* Terminal Input */}
-              <form onSubmit={handleTerminalSubmit} className="border-t border-white/10 p-4">
+              <form onSubmit={handleTerminalSubmit} className="border-t border-white/12 p-4">
                 <div className="flex items-center space-x-2">
                   <span className="text-green-400 font-fira-code">$</span>
                   <input
@@ -297,7 +297,7 @@ const Contact: React.FC = () => {
                     value={terminalInput}
                     onChange={(e) => setTerminalInput(e.target.value)}
                     placeholder="Type a command..."
-                    className="flex-1 bg-transparent text-white outline-none font-fira-code placeholder-white/40 focus-neon"
+                    className="flex-1 bg-transparent text-offwhite outline-none font-fira-code placeholder-offwhite/40 focus-neon"
                   />
                   <button
                     type="submit"
@@ -320,7 +320,7 @@ const Contact: React.FC = () => {
               </button>
               <button
                 onClick={() => handleTerminalCommand('status')}
-                className="bg-white/10 hover:bg-white/20 border border-white/10 hover:border-candy-pink/40 px-4 py-3 rounded-xl font-medium transition-all duration-200 transform hover:scale-105 flex items-center justify-center space-x-2"
+                className="bg-slate-950/42 hover:bg-slate-900/55 border border-white/12 hover:border-candy-pink/40 px-4 py-3 rounded-xl font-medium transition-all duration-200 transform hover:scale-105 flex items-center justify-center space-x-2"
               >
                 <CheckCircle size={16} />
                 <span>Check Status</span>

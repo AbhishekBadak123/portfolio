@@ -104,7 +104,7 @@ const Skills: React.FC = () => {
   ];
 
   return (
-    <section id="skills" ref={sectionRef} className="py-20 relative overflow-hidden">
+    <section id="skills" ref={sectionRef} className="py-20 relative overflow-hidden text-offwhite">
       {/* Background Effects */}
       <div className="absolute inset-0 opacity-5">
         {/* Circuit Pattern */}
@@ -120,7 +120,7 @@ const Skills: React.FC = () => {
           <h2 className="text-4xl md:text-5xl font-paytone mb-4 text-candy-pink drop-shadow-neonPink">
             Skills & Expertise
           </h2>
-          <p className="text-white/80 max-w-2xl mx-auto">
+          <p className="text-offwhite/85 max-w-2xl mx-auto text-base md:text-lg">
             Comprehensive toolkit for modern DevOps and cloud infrastructure management
           </p>
         </div>
@@ -135,13 +135,13 @@ const Skills: React.FC = () => {
               }`}
               style={{ transitionDelay: `${categoryIndex * 100}ms` }}
             >
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:border-candy-pink/40 transition-all duration-300 h-full">
+              <div className="bg-slate-950/42 backdrop-blur-lg rounded-2xl p-6 border border-white/12 hover:border-candy-pink/40 transition-all duration-300 h-full">
                 {/* Category Header */}
                 <div className="flex items-center space-x-3 mb-6">
                   <div className={`w-12 h-12 bg-gradient-to-r ${category.color} rounded-xl flex items-center justify-center shadow-neon-purple`}>
                     <category.icon size={24} className="text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-white">{category.name}</h3>
+                  <h3 className="text-xl font-bold text-offwhite">{category.name}</h3>
                 </div>
 
                 {/* Skills List */}
@@ -155,14 +155,14 @@ const Skills: React.FC = () => {
                     >
                       <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center space-x-2">
-                          <skill.icon size={16} className="text-white/60" />
-                          <span className="text-white font-medium">{skill.name}</span>
+                          <skill.icon size={16} className="text-offwhite/70" />
+                          <span className="text-offwhite font-medium">{skill.name}</span>
                         </div>
-                        <span className="text-white/60 text-sm">{skill.level}%</span>
+                        <span className="text-offwhite/70 text-sm">{skill.level}%</span>
                       </div>
                       
                       {/* Progress Bar */}
-                      <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
+                      <div className="w-full bg-white/12 rounded-full h-2 overflow-hidden">
                         <div
                           className={`h-full bg-gradient-to-r ${category.color} transition-all duration-1000 ease-out ${
                             activeSkill === `${category.name}-${skill.name}` ? 'animate-pulse' : ''
@@ -183,7 +183,7 @@ const Skills: React.FC = () => {
 
         {/* CI/CD Pipeline Animation */}
         <div className={`mb-16 transform transition-all duration-1000 delay-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/10">
+          <div className="bg-slate-950/42 backdrop-blur-lg rounded-2xl p-8 border border-white/12">
             <h3 className="text-2xl font-bold text-candy-pink mb-6 text-center">My DevOps Workflow</h3>
             
             <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8">
@@ -199,7 +199,7 @@ const Skills: React.FC = () => {
                     <div className={`w-16 h-16 bg-gradient-to-r ${step.color} rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-neon-purple`}>
                       <step.icon size={28} className="text-white" />
                     </div>
-                    <span className="text-white font-medium">{step.name}</span>
+                    <span className="text-offwhite font-medium">{step.name}</span>
                   </div>
                   {index < 4 && (
                     <ArrowRight size={20} className="text-white/40 hidden md:block animate-pulse" />
@@ -212,19 +212,19 @@ const Skills: React.FC = () => {
 
         {/* Certifications */}
         <div className={`transform transition-all duration-1000 delay-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
-          <div className="bg-white/10 backdrop-blur-md rounded-2xl p-8 border border-white/10">
+          <div className="bg-slate-950/42 backdrop-blur-lg rounded-2xl p-8 border border-white/12">
             <h3 className="text-2xl font-bold text-candy-pink mb-6 text-center">Certifications & Goals</h3>
             
             <div className="grid md:grid-cols-2 gap-4">
               {certifications.map((cert) => (
                 <div
                   key={cert}
-                  className="flex items-center space-x-3 p-3 bg-white/5 rounded-xl border border-white/10 hover:border-candy-pink/40 transition-all duration-300"
+                  className="flex items-center space-x-3 p-3 bg-white/6 rounded-xl border border-white/12 hover:border-candy-pink/40 transition-all duration-300"
                 >
                   <div className="w-8 h-8 bg-candy-pink rounded-full flex items-center justify-center flex-shrink-0 shadow-neon-pink">
                     <CheckCircle size={16} className="text-white" />
                   </div>
-                  <span className="text-white/80">{cert}</span>
+                  <span className="text-offwhite/88">{cert}</span>
                 </div>
               ))}
             </div>

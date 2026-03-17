@@ -327,6 +327,21 @@ const useShaderBackground = () => {
   return canvasRef;
 };
 
+export const ShaderBackgroundCanvas: React.FC<{ className?: string }> = ({ className = '' }) => {
+  const canvasRef = useShaderBackground();
+
+  return (
+    <div className={`absolute inset-0 ${className}`}>
+      <canvas
+        ref={canvasRef}
+        className="absolute inset-0 w-full h-full object-contain touch-none"
+        style={{ background: 'black' }}
+      />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(24,10,33,0.15),rgba(5,3,12,0.72)_58%,rgba(2,2,6,0.9))]" />
+    </div>
+  );
+};
+
 // Reusable Hero Component
 const Hero: React.FC<HeroProps> = ({
   trustBadge,
@@ -335,15 +350,9 @@ const Hero: React.FC<HeroProps> = ({
   buttons,
   className = ""
 }) => {
-  const canvasRef = useShaderBackground();
-
   return (
-    <div className={`relative w-full h-screen overflow-hidden bg-black ${className}`}>
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 w-full h-full object-contain touch-none"
-        style={{ background: 'black' }}
-      />
+    <div className={`relative w-full h-screen overflow-hidden ${className}`}>
+      <ShaderBackgroundCanvas />
 
       {/* Hero Content Overlay */}
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-white">
