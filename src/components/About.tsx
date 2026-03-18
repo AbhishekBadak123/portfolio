@@ -61,7 +61,7 @@ const About: React.FC = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className={`text-center mb-16 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+        <div className={`text-center mb-16 opacity-0 ${isVisible ? 'animate-fade-in-up' : ''}`}>
           <h2 className="text-4xl md:text-5xl font-paytone mb-4 text-candy-pink drop-shadow-neonPink">
             About Me
           </h2>
@@ -71,7 +71,7 @@ const About: React.FC = () => {
         </div>
 
         {/* Tab Navigation */}
-        <div className={`flex justify-center mb-12 transform transition-all duration-1000 delay-200 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+        <div className={`flex justify-center mb-12 opacity-0 ${isVisible ? 'animate-fade-in-up animation-delay-200' : ''}`}>
           <div className="bg-black/25 backdrop-blur-md rounded-full p-2 border border-white/15 shadow-neon-purple">
             <button
               onClick={() => setActiveTab('journey')}
@@ -99,7 +99,7 @@ const About: React.FC = () => {
         {/* Content Grid */}
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left Column - Main Content */}
-          <div className={`space-y-8 transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
+          <div className={`space-y-8 opacity-0 ${isVisible ? 'animate-fade-in-up animation-delay-400' : ''}`}>
             {activeTab === 'journey' && (
               <div className="space-y-6">
                 <div className="bg-slate-950/42 backdrop-blur-lg rounded-2xl p-6 border border-white/12 shadow-neon-purple">
@@ -199,7 +199,7 @@ const About: React.FC = () => {
           </div>
 
           {/* Right Column - Passions */}
-          <div className={`space-y-8 transform transition-all duration-1000 delay-500 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
+          <div className={`space-y-8 opacity-0 ${isVisible ? 'animate-fade-in-up animation-delay-600' : ''}`}>
             <div className="bg-slate-950/42 backdrop-blur-lg rounded-2xl p-6 border border-white/12">
               <h3 className="text-xl font-bold text-candy-pink mb-6">My Passions</h3>
               <div className="grid grid-cols-2 gap-4">

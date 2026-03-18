@@ -39,14 +39,9 @@ function App() {
 
   return (
     <ThemeProvider>
-      <div
-        className="min-h-screen overflow-x-hidden text-white"
-        style={{
-          background: 'linear-gradient(180deg, #0b0615 0%, #080510 100%)',
-        }}
-      >
+      <div className="min-h-screen overflow-x-hidden text-white bg-black">
         <div className="fixed inset-0 z-0">
-          <ShaderBackgroundCanvas className="opacity-55" />
+          <ShaderBackgroundCanvas />
           <BackgroundEffects />
         </div>
         <Header />

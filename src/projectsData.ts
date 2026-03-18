@@ -65,6 +65,55 @@ const projectsData = [
     type: 'project',
     github: githubBase + 'facebook.py',
   },
+  {
+    title: 'Streamlit Automation Panel',
+    description: 'A web-based automation panel built using Streamlit and Python.',
+    category: 'Python',
+    type: 'project',
+    github: githubBase + 'automation-panel-streamlit',
+  },
+  {
+    title: 'Gradio Automation Interface',
+    description: 'An interactive automation UI built with Gradio.',
+    category: 'Python',
+    type: 'project',
+    github: githubBase + 'gradio-automation-panel',
+  },
+  {
+    title: 'Document Converter',
+    description: 'A tool to easily convert documents between different formats.',
+    category: 'Python',
+    type: 'project',
+    github: githubBase + 'doc_converter',
+  },
+  {
+    title: 'Flask Student API',
+    description: 'A RESTful API for student management using Flask and Python.',
+    category: 'Python',
+    type: 'project',
+    github: githubBase + 'flask-student-api',
+  },
+  {
+    title: 'Secret Messenger',
+    description: 'A secure messaging application.',
+    category: 'Python',
+    type: 'project',
+    github: githubBase + 'secret_messenger',
+  },
+  {
+    title: 'YouTube Mini App',
+    description: 'A mini utility app for interacting with YouTube.',
+    category: 'Python',
+    type: 'project',
+    github: githubBase + 'youtube_mini_app',
+  },
+  {
+    title: 'Integrated Communication Scripts',
+    description: 'A suite of scripts integrating various communication tools seamlessly.',
+    category: 'Python',
+    type: 'project',
+    github: githubBase + 'integrated-communication',
+  },
 
   // LINUX
   {
@@ -109,8 +158,22 @@ const projectsData = [
     type: 'blog',
     linkedin: 'https://www.linkedin.com/posts/abhishek-badak-73899228a_linux-processcontrol-ctrlc-activity-7349369796745932800-Bdjr?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEZEtpwBTfFT_srSGnojRyxL45A1Cq_9HGU',
   },
+  {
+    title: 'Linux AI Integration',
+    description: 'AI-assisted command line operations and automation for Linux environments.',
+    category: 'Linux',
+    type: 'project',
+    github: githubBase + 'LinuxAi',
+  },
+  {
+    title: 'Linux UI Dashboard',
+    description: 'A system dashboard application running on Linux.',
+    category: 'Linux',
+    type: 'project',
+    github: githubBase + 'linux_dasboard',
+  },
 
-  // DOCKER
+  // DOCKER / KUBERNETES
   {
     title: 'Case Study: Why Companies Use Docker',
     description: 'Case study of why Docker is used by different companies and the benefits.',
@@ -145,6 +208,34 @@ const projectsData = [
     category: 'Docker',
     type: 'blog',
     linkedin: 'https://www.linkedin.com/posts/abhishek-badak-73899228a_linuxworld-docker-systemd-activity-7350193542834671616-Lb3d?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEZEtpwBTfFT_srSGnojRyxL45A1Cq_9HGU',
+  },
+  {
+    title: 'Run Firefox in Docker',
+    description: 'Containerized Firefox UI browser running via Docker graphical mapping.',
+    category: 'Docker',
+    type: 'project',
+    github: githubBase + 'firefox-docker',
+  },
+  {
+    title: 'Run VLC Player in Docker',
+    description: 'Containerized VLC media player running seamlessly via Docker.',
+    category: 'Docker',
+    type: 'project',
+    github: githubBase + 'vlc-media-player',
+  },
+  {
+    title: 'MongoDB Server Container',
+    description: 'Setup, deployment and configuration of a MongoDB server inside Docker.',
+    category: 'Docker',
+    type: 'project',
+    github: githubBase + 'mongo-db-server',
+  },
+  {
+    title: 'Kubernetes Pod Demo',
+    description: 'Demonstration and deployment of Kubernetes pods for container orchestration.',
+    category: 'Docker',
+    type: 'project',
+    github: githubBase + 'k8s-pod-demo',
   },
 
   // JAVASCRIPT HANDS-ON TASKS
@@ -215,4 +306,4 @@ const projectsData = [
   },
 ];
 
-export default projectsData; 
+export default projectsData;

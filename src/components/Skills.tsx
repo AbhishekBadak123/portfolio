@@ -116,7 +116,7 @@ const Skills: React.FC = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className={`text-center mb-16 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+        <div className={`text-center mb-16 opacity-0 ${isVisible ? 'animate-fade-in-up' : ''}`}>
           <h2 className="text-4xl md:text-5xl font-paytone mb-4 text-candy-pink drop-shadow-neonPink">
             Skills & Expertise
           </h2>
@@ -130,8 +130,8 @@ const Skills: React.FC = () => {
           {skillCategories.map((category, categoryIndex) => (
             <div
               key={category.name}
-              className={`transform transition-all duration-1000 ${
-                isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+              className={`opacity-0 ${
+                isVisible ? 'animate-fade-in-up' : ''
               }`}
               style={{ transitionDelay: `${categoryIndex * 100}ms` }}
             >
@@ -182,7 +182,7 @@ const Skills: React.FC = () => {
         </div>
 
         {/* CI/CD Pipeline Animation */}
-        <div className={`mb-16 transform transition-all duration-1000 delay-500 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+        <div className={`mb-16 opacity-0 ${isVisible ? 'animate-fade-in-up animation-delay-600' : ''}`}>
           <div className="bg-slate-950/42 backdrop-blur-lg rounded-2xl p-8 border border-white/12">
             <h3 className="text-2xl font-bold text-candy-pink mb-6 text-center">My DevOps Workflow</h3>
             
@@ -211,7 +211,7 @@ const Skills: React.FC = () => {
         </div>
 
         {/* Certifications */}
-        <div className={`transform transition-all duration-1000 delay-700 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+        <div className={`opacity-0 ${isVisible ? 'animate-fade-in-up animation-delay-800' : ''}`}>
           <div className="bg-slate-950/42 backdrop-blur-lg rounded-2xl p-8 border border-white/12">
             <h3 className="text-2xl font-bold text-candy-pink mb-6 text-center">Certifications & Goals</h3>
             

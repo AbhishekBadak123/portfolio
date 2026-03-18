@@ -178,7 +178,7 @@ const Contact: React.FC = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
-        <div className={`text-center mb-16 transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+        <div className={`text-center mb-16 opacity-0 ${isVisible ? 'animate-fade-in-up' : ''}`}>
           <h2 className="text-4xl md:text-5xl font-paytone mb-4 text-candy-pink drop-shadow-neonPink">
             Let's Connect
           </h2>
@@ -189,7 +189,7 @@ const Contact: React.FC = () => {
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}
-          <div className={`space-y-8 transform transition-all duration-1000 ${isVisible ? 'translate-x-0 opacity-100' : '-translate-x-10 opacity-0'}`}>
+          <div className={`space-y-8 opacity-0 ${isVisible ? 'animate-fade-in-up animation-delay-200' : ''}`}>
             {/* Status Card */}
             <div className="bg-slate-950/42 backdrop-blur-lg rounded-2xl p-6 border border-white/12">
               <div className="flex items-center space-x-3 mb-4">
@@ -215,8 +215,8 @@ const Contact: React.FC = () => {
                 <a
                   key={contact.label}
                   href={contact.href}
-                  className={`group block p-4 bg-slate-950/42 backdrop-blur-lg rounded-xl border border-white/12 hover:border-candy-pink/40 transition-all duration-300 hover:scale-105 transform transition-all duration-1000 ${
-                    isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                  className={`group block p-4 bg-slate-950/42 backdrop-blur-lg rounded-xl border border-white/12 hover:border-candy-pink/40 transition-all duration-300 hover:scale-105 opacity-0 ${
+                    isVisible ? 'animate-fade-in-up' : ''
                   }`}
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
@@ -243,8 +243,8 @@ const Contact: React.FC = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`group flex items-center space-x-3 p-3 bg-white/6 rounded-xl border border-white/12 hover:border-candy-pink/40 transition-all duration-300 hover:scale-105 transform transition-all duration-1000 ${
-                      isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
+                    className={`group flex items-center space-x-3 p-3 bg-white/6 rounded-xl border border-white/12 hover:border-candy-pink/40 transition-all duration-300 hover:scale-105 opacity-0 ${
+                      isVisible ? 'animate-fade-in-up' : ''
                     }`}
                     style={{ transitionDelay: `${400 + index * 100}ms` }}
                   >
@@ -262,7 +262,7 @@ const Contact: React.FC = () => {
           </div>
 
           {/* Terminal Interface */}
-          <div className={`transform transition-all duration-1000 delay-300 ${isVisible ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}>
+          <div className={`opacity-0 ${isVisible ? 'animate-fade-in-up animation-delay-400' : ''}`}>
             <div className="bg-slate-950/60 backdrop-blur-xl rounded-2xl border border-white/12 overflow-hidden shadow-neon-purple">
               {/* Terminal Header */}
               <div className="bg-white/8 px-4 py-3 border-b border-white/12">

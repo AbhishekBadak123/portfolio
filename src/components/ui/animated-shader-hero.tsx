@@ -352,7 +352,7 @@ const Hero: React.FC<HeroProps> = ({
 }) => {
   return (
     <div className={`relative w-full h-screen overflow-hidden ${className}`}>
-      <ShaderBackgroundCanvas />
+      {/* Global ShaderBackgroundCanvas is now handled in App.tsx */}
 
       {/* Hero Content Overlay */}
       <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-white">
