@@ -1,4 +1,5 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useCallback } from 'react';
+import { motion, useMotionValue, useTransform, useSpring } from 'framer-motion';
 
 // Types for component props
 interface HeroProps {
@@ -21,6 +22,7 @@ interface HeroProps {
       onClick?: () => void;
     };
   };
+  profileImage?: string;
   className?: string;
 }
 
@@ -342,77 +344,183 @@ export const ShaderBackgroundCanvas: React.FC<{ className?: string }> = ({ class
   );
 };
 
+// Lightweight mouse position hook for parallax
+const useMouseParallax = () => {
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect();
+    const centerX = rect.left + rect.width / 2;
+    const centerY = rect.top + rect.height / 2;
+    mouseX.set((e.clientX - centerX) / rect.width);
+    mouseY.set((e.clientY - centerY) / rect.height);
+  }, [mouseX, mouseY]);
+
+  const handleMouseLeave = useCallback(() => {
+    mouseX.set(0);
+    mouseY.set(0);
+  }, [mouseX, mouseY]);
+
+  return { mouseX, mouseY, handleMouseMove, handleMouseLeave };
+};
+
+// Button microinteraction variants
+const buttonVariants = {
+  rest: { scale: 1, y: 0 },
+  hover: { scale: 1.05, y: -3 },
+  tap: { scale: 0.97, y: 0 },
+};
+
+const springConfig = { stiffness: 300, damping: 20, mass: 0.8 };
+
 // Reusable Hero Component
 const Hero: React.FC<HeroProps> = ({
   trustBadge,
   headline,
   subtitle,
   buttons,
+  profileImage,
   className = ""
 }) => {
-  return (
-    <div className={`relative w-full h-screen overflow-hidden ${className}`}>
-      {/* Global ShaderBackgroundCanvas is now handled in App.tsx */}
+  const { mouseX, mouseY, handleMouseMove, handleMouseLeave } = useMouseParallax();
 
+  // Parallax transforms — subtle shifts for depth
+  const textX = useSpring(useTransform(mouseX, [-1, 1], [-6, 6]), springConfig);
+  const textY = useSpring(useTransform(mouseY, [-1, 1], [-4, 4]), springConfig);
+  const imgX = useSpring(useTransform(mouseX, [-1, 1], [8, -8]), springConfig);
+  const imgY = useSpring(useTransform(mouseY, [-1, 1], [6, -6]), springConfig);
+  const badgeX = useSpring(useTransform(mouseX, [-1, 1], [-3, 3]), springConfig);
+  const badgeY = useSpring(useTransform(mouseY, [-1, 1], [-2, 2]), springConfig);
+
+  return (
+    <div
+      className={`relative w-full min-h-screen overflow-hidden ${className}`}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+    >
       {/* Hero Content Overlay */}
-      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center text-white">
-        {/* Trust Badge */}
-        {trustBadge && (
-          <div className="mb-8 animate-fade-in-down">
-            <div className="flex items-center gap-2 px-6 py-3 bg-orange-500/10 backdrop-blur-md border border-orange-300/30 rounded-full text-sm">
-              {trustBadge.icons && (
-                <div className="flex">
-                  {trustBadge.icons.map((icon, index) => (
-                    <span key={index} className={`text-${index === 0 ? 'yellow' : index === 1 ? 'orange' : 'amber'}-300`}>
-                      {icon}
-                    </span>
-                  ))}
+      <div className="absolute inset-0 z-10 flex items-center justify-center text-white">
+        <div className="container mx-auto px-6 lg:px-12">
+
+          {/* Trust Badge — above grid */}
+          {trustBadge && (
+            <motion.div
+              className="flex justify-center lg:justify-start mb-8 animate-fade-in-down"
+              style={{ x: badgeX, y: badgeY }}
+            >
+              <div className="flex items-center gap-2 px-5 py-2.5 bg-orange-500/10 backdrop-blur-md border border-orange-300/25 rounded-full text-sm">
+                {trustBadge.icons && (
+                  <div className="flex">
+                    {trustBadge.icons.map((icon, index) => (
+                      <span key={index} className="text-yellow-300">
+                        {icon}
+                      </span>
+                    ))}
+                  </div>
+                )}
+                <span className="text-orange-100/90 font-fira-code">{trustBadge.text}</span>
+              </div>
+            </motion.div>
+          )}
+
+          {/* Main Grid: Text + Image */}
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+            {/* Left: Text Content */}
+            <motion.div
+              className="space-y-6 text-center lg:text-left order-2 lg:order-1"
+              style={{ x: textX, y: textY }}
+            >
+              {/* Greeting */}
+              <div className="animate-fade-in-up animation-delay-200">
+                <span className="inline-flex items-center gap-2 font-fira-code text-sm text-orange-400/90 tracking-wide">
+                  <span className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" />
+                  Hello World, I&apos;m
+                </span>
+              </div>
+
+              {/* Main Heading */}
+              <div className="space-y-1">
+                <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-rajdhani font-bold bg-gradient-to-r from-orange-200 via-yellow-300 to-amber-200 bg-clip-text text-transparent leading-tight animate-fade-in-up animation-delay-200">
+                  {headline.line1}
+                </h1>
+                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-space font-bold bg-gradient-to-r from-yellow-300 via-orange-400 to-red-400 bg-clip-text text-transparent leading-tight animate-fade-in-up animation-delay-400">
+                  {headline.line2}
+                </h2>
+              </div>
+
+              {/* Subtitle */}
+              <div className="animate-fade-in-up animation-delay-600">
+                <p className="text-base md:text-lg text-orange-100/75 font-light leading-relaxed max-w-xl mx-auto lg:mx-0">
+                  {subtitle}
+                </p>
+              </div>
+
+              {/* CTA Buttons */}
+              {buttons && (
+                <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4 animate-fade-in-up animation-delay-800">
+                  {buttons.primary && (
+                    <motion.button
+                      onClick={buttons.primary.onClick}
+                      variants={buttonVariants}
+                      initial="rest"
+                      whileHover="hover"
+                      whileTap="tap"
+                      transition={springConfig}
+                      className="px-8 py-4 bg-gradient-to-r from-orange-500 to-yellow-500 text-black rounded-full font-semibold text-lg shadow-lg shadow-orange-500/15 hover:shadow-xl hover:shadow-orange-500/30 transition-shadow duration-300"
+                    >
+                      {buttons.primary.text}
+                    </motion.button>
+                  )}
+                  {buttons.secondary && (
+                    <motion.button
+                      onClick={buttons.secondary.onClick}
+                      variants={buttonVariants}
+                      initial="rest"
+                      whileHover="hover"
+                      whileTap="tap"
+                      transition={springConfig}
+                      className="px-8 py-4 bg-orange-500/10 border border-orange-300/25 hover:border-orange-300/50 text-orange-100 rounded-full font-semibold text-lg backdrop-blur-sm hover:bg-orange-500/15 transition-colors duration-300"
+                    >
+                      {buttons.secondary.text}
+                    </motion.button>
+                  )}
                 </div>
               )}
-              <span className="text-orange-100">{trustBadge.text}</span>
-            </div>
-          </div>
-        )}
+            </motion.div>
 
-        <div className="text-center space-y-6 max-w-5xl mx-auto px-4">
-          {/* Main Heading with Animation */}
-          <div className="space-y-2">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-orange-300 via-yellow-400 to-amber-300 bg-clip-text text-transparent animate-fade-in-up animation-delay-200">
-              {headline.line1}
-            </h1>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-yellow-300 via-orange-400 to-red-400 bg-clip-text text-transparent animate-fade-in-up animation-delay-400">
-              {headline.line2}
-            </h1>
-          </div>
-
-          {/* Subtitle with Animation */}
-          <div className="max-w-3xl mx-auto animate-fade-in-up animation-delay-600">
-            <p className="text-lg md:text-xl lg:text-2xl text-orange-100/90 font-light leading-relaxed">
-              {subtitle}
-            </p>
-          </div>
-
-          {/* CTA Buttons with Animation */}
-          {buttons && (
-            <div className="flex flex-col sm:flex-row gap-4 justify-center mt-10 animate-fade-in-up animation-delay-800">
-              {buttons.primary && (
-                <button
-                  onClick={buttons.primary.onClick}
-                  className="px-8 py-4 bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600 text-black rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 hover:shadow-xl hover:shadow-orange-500/25"
+            {/* Right: Profile Image */}
+            {profileImage && (
+              <motion.div
+                className="flex justify-center order-1 lg:order-2 animate-fade-in-up animation-delay-400"
+                style={{ x: imgX, y: imgY }}
+              >
+                <motion.div
+                  className="relative group"
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ type: 'spring', stiffness: 200, damping: 15 }}
                 >
-                  {buttons.primary.text}
-                </button>
-              )}
-              {buttons.secondary && (
-                <button
-                  onClick={buttons.secondary.onClick}
-                  className="px-8 py-4 bg-orange-500/10 hover:bg-orange-500/20 border border-orange-300/30 hover:border-orange-300/50 text-orange-100 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 backdrop-blur-sm"
-                >
-                  {buttons.secondary.text}
-                </button>
-              )}
-            </div>
-          )}
+                  {/* Outer glow ring */}
+                  <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-orange-500 via-yellow-400 to-amber-500 opacity-60 blur-sm group-hover:opacity-80 group-hover:blur-md transition-all duration-500" />
+
+                  {/* Spinning gradient border */}
+                  <div className="absolute -inset-0.5 rounded-full bg-gradient-to-r from-orange-400 via-amber-300 to-yellow-500 animate-spin-slow opacity-70" />
+
+                  {/* Image container */}
+                  <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 rounded-full overflow-hidden border-2 border-black/50 shadow-2xl shadow-orange-500/15">
+                    <img
+                      src={profileImage}
+                      alt="Abhishek Badak"
+                      className="w-full h-full object-cover object-center"
+                    />
+                    {/* Subtle overlay for depth */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+                  </div>
+                </motion.div>
+              </motion.div>
+            )}
+          </div>
         </div>
       </div>
     </div>

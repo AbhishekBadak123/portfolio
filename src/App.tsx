@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import AnimatedShaderHero, { ShaderBackgroundCanvas } from '@/components/ui/animated-shader-hero';
+import profileImg from './assets/profile.jpg';
 import About from './components/About';
 import Contact from './components/Contact';
 import Header from './components/Header';
@@ -42,6 +43,7 @@ function App() {
         <main className="relative z-10">
           <AnimatedShaderHero
             className="bg-transparent"
+            profileImage={profileImg}
             trustBadge={{
               text: 'Open to opportunities',
               icons: ['🚀'],
