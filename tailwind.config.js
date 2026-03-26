@@ -5,7 +5,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        paytone: ['"Paytone One"', 'cursive'],
+        'space': ['"Space Grotesk"', 'sans-serif'],
         'poppins': ['Poppins', 'sans-serif'],
         'rajdhani': ['Rajdhani', 'sans-serif'],
         'fira-code': ['Fira Code', 'monospace'],
@@ -16,7 +16,7 @@ export default {
         'spin-slow': 'spin 3s linear infinite',
         'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         blob: 'blob 8s ease-in-out infinite',
-        'neon-flicker': 'neon-flicker 2.8s ease-in-out infinite',
+        'glow-pulse': 'glow-pulse 2.8s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
@@ -32,10 +32,10 @@ export default {
           '33%': { transform: 'translate3d(18px, -24px, 0) scale(1.05)' },
           '66%': { transform: 'translate3d(-14px, 12px, 0) scale(0.97)' },
         },
-        'neon-flicker': {
+        'glow-pulse': {
           '0%, 100%': { opacity: '1', filter: 'brightness(1)' },
           '45%': { opacity: '0.92', filter: 'brightness(1.08)' },
-          '50%': { opacity: '0.82', filter: 'brightness(0.96)' },
+          '50%': { opacity: '0.85', filter: 'brightness(0.96)' },
           '55%': { opacity: '0.95', filter: 'brightness(1.04)' },
         },
       },
@@ -43,35 +43,35 @@ export default {
         xs: '2px',
       },
       boxShadow: {
-        'neon-pink': '0 0 12px rgba(255, 72, 185, 0.45)',
-        'neon-green': '0 0 12px rgba(18, 206, 106, 0.45)',
-        'neon-purple': '0 0 16px rgba(80, 32, 122, 0.35)',
+        'glow-orange': '0 0 12px rgba(251, 146, 60, 0.45)',
+        'glow-amber': '0 0 12px rgba(245, 158, 11, 0.45)',
+        'glow-warm': '0 0 16px rgba(234, 88, 12, 0.3)',
       },
       dropShadow: {
-        neonPink: '0 0 10px rgba(255, 72, 185, 0.6)',
+        glowOrange: '0 0 10px rgba(251, 146, 60, 0.6)',
       },
       colors: {
         offwhite: '#F7F7FB',
-        'candy-pink': '#FF48B9',
-        'candy-green': '#12CE6A',
-        'electric-purple': {
-          400: '#b266ff',
-          500: '#8d33ff',
-          600: '#7a1fff',
+        'warm-orange': {
+          300: '#fdba74',
+          400: '#fb923c',
+          500: '#f97316',
+          600: '#ea580c',
         },
-        'cyber-teal': {
-          400: '#00f5d4',
-          500: '#00d4aa',
-          600: '#00b391',
+        'warm-amber': {
+          300: '#fcd34d',
+          400: '#fbbf24',
+          500: '#f59e0b',
+          600: '#d97706',
         },
-        'glow-orange': {
-          400: '#ff8c5a',
-          500: '#ff6b35',
-          600: '#e55a2b',
+        'warm-red': {
+          400: '#f87171',
+          500: '#ef4444',
+          600: '#dc2626',
         },
         'deep-space': {
-          900: '#0a0a2a',
-          950: '#050515',
+          900: '#0a0a1a',
+          950: '#050510',
         },
       },
     },

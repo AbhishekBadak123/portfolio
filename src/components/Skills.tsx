@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { 
-  Server, Cloud, Code, Database, GitBranch, Shield, 
+import {
+  Server, Cloud, Code, Database, GitBranch, Shield,
   Container, Monitor, Settings, Network,
   CheckCircle, ArrowRight
 } from 'lucide-react';
@@ -31,7 +31,8 @@ const Skills: React.FC = () => {
     {
       name: 'DevOps & CI/CD',
       icon: GitBranch,
-      color: 'from-purple-500 to-purple-600',
+      color: 'from-orange-500 to-orange-600',
+      barColor: 'from-orange-500 to-amber-500',
       skills: [
         { name: 'Jenkins', level: 85, icon: Settings },
         { name: 'GitHub Actions', level: 80, icon: GitBranch },
@@ -42,7 +43,8 @@ const Skills: React.FC = () => {
     {
       name: 'Cloud Platforms',
       icon: Cloud,
-      color: 'from-cyan-500 to-cyan-600',
+      color: 'from-amber-500 to-amber-600',
+      barColor: 'from-amber-500 to-yellow-500',
       skills: [
         { name: 'AWS', level: 80, icon: Cloud },
         { name: 'Azure', level: 75, icon: Cloud },
@@ -53,7 +55,8 @@ const Skills: React.FC = () => {
     {
       name: 'Infrastructure',
       icon: Server,
-      color: 'from-green-500 to-green-600',
+      color: 'from-yellow-500 to-yellow-600',
+      barColor: 'from-yellow-500 to-orange-400',
       skills: [
         { name: 'Terraform', level: 80, icon: Code },
         { name: 'Ansible', level: 75, icon: Settings },
@@ -64,7 +67,8 @@ const Skills: React.FC = () => {
     {
       name: 'Monitoring & Security',
       icon: Shield,
-      color: 'from-orange-500 to-orange-600',
+      color: 'from-red-400 to-orange-500',
+      barColor: 'from-red-400 to-orange-400',
       skills: [
         { name: 'Prometheus', level: 75, icon: Monitor },
         { name: 'Grafana', level: 80, icon: Monitor },
@@ -75,7 +79,8 @@ const Skills: React.FC = () => {
     {
       name: 'Development',
       icon: Code,
-      color: 'from-pink-500 to-pink-600',
+      color: 'from-orange-400 to-red-400',
+      barColor: 'from-orange-400 to-red-400',
       skills: [
         { name: 'Python', level: 85, icon: Code },
         { name: 'JavaScript', level: 80, icon: Code },
@@ -86,7 +91,8 @@ const Skills: React.FC = () => {
     {
       name: 'Databases',
       icon: Database,
-      color: 'from-blue-500 to-blue-600',
+      color: 'from-amber-400 to-yellow-500',
+      barColor: 'from-amber-400 to-yellow-400',
       skills: [
         { name: 'MongoDB', level: 80, icon: Database },
         { name: 'PostgreSQL', level: 75, icon: Database },
@@ -104,23 +110,14 @@ const Skills: React.FC = () => {
   ];
 
   return (
-    <section id="skills" ref={sectionRef} className="py-20 relative overflow-hidden text-offwhite">
-      {/* Background Effects */}
-      <div className="absolute inset-0 opacity-5">
-        {/* Circuit Pattern */}
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M30 30c0-11.046-8.954-20-20-20s-20 8.954-20 20 8.954 20 20 20 20-8.954 20-20zm0 0c0 11.046 8.954 20 20 20s20-8.954 20-20-8.954-20-20-20-20 8.954-20 20z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          backgroundSize: '60px 60px'
-        }}></div>
-      </div>
-
+    <section id="skills" ref={sectionRef} className="py-20 relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className={`text-center mb-16 opacity-0 ${isVisible ? 'animate-fade-in-up' : ''}`}>
-          <h2 className="text-4xl md:text-5xl font-paytone mb-4 text-candy-pink drop-shadow-neonPink">
+          <h2 className="text-4xl md:text-5xl font-rajdhani font-bold mb-4 bg-gradient-to-r from-orange-300 via-yellow-400 to-amber-300 bg-clip-text text-transparent">
             Skills & Expertise
           </h2>
-          <p className="text-offwhite/85 max-w-2xl mx-auto text-base md:text-lg">
+          <p className="text-orange-100/70 max-w-2xl mx-auto text-base md:text-lg">
             Comprehensive toolkit for modern DevOps and cloud infrastructure management
           </p>
         </div>
@@ -133,13 +130,13 @@ const Skills: React.FC = () => {
               className={`opacity-0 ${
                 isVisible ? 'animate-fade-in-up' : ''
               }`}
-              style={{ transitionDelay: `${categoryIndex * 100}ms` }}
+              style={{ animationDelay: `${categoryIndex * 100 + 200}ms` }}
             >
-              <div className="bg-slate-950/42 backdrop-blur-lg rounded-2xl p-6 border border-white/12 hover:border-candy-pink/40 transition-all duration-300 h-full">
+              <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-6 border border-white/10 hover:border-orange-400/30 transition-all duration-300 h-full">
                 {/* Category Header */}
                 <div className="flex items-center space-x-3 mb-6">
-                  <div className={`w-12 h-12 bg-gradient-to-r ${category.color} rounded-xl flex items-center justify-center shadow-neon-purple`}>
-                    <category.icon size={24} className="text-white" />
+                  <div className={`w-12 h-12 bg-gradient-to-r ${category.color} rounded-xl flex items-center justify-center shadow-glow-warm`}>
+                    <category.icon size={24} className="text-black" />
                   </div>
                   <h3 className="text-xl font-bold text-offwhite">{category.name}</h3>
                 </div>
@@ -155,16 +152,16 @@ const Skills: React.FC = () => {
                     >
                       <div className="flex items-center justify-between mb-2">
                         <div className="flex items-center space-x-2">
-                          <skill.icon size={16} className="text-offwhite/70" />
+                          <skill.icon size={16} className="text-orange-100/60" />
                           <span className="text-offwhite font-medium">{skill.name}</span>
                         </div>
-                        <span className="text-offwhite/70 text-sm">{skill.level}%</span>
+                        <span className="text-orange-100/50 text-sm">{skill.level}%</span>
                       </div>
-                      
+
                       {/* Progress Bar */}
-                      <div className="w-full bg-white/12 rounded-full h-2 overflow-hidden">
+                      <div className="w-full bg-white/10 rounded-full h-2 overflow-hidden">
                         <div
-                          className={`h-full bg-gradient-to-r ${category.color} transition-all duration-1000 ease-out ${
+                          className={`h-full bg-gradient-to-r ${category.barColor} transition-all duration-1000 ease-out ${
                             activeSkill === `${category.name}-${skill.name}` ? 'animate-pulse' : ''
                           }`}
                           style={{
@@ -183,26 +180,26 @@ const Skills: React.FC = () => {
 
         {/* CI/CD Pipeline Animation */}
         <div className={`mb-16 opacity-0 ${isVisible ? 'animate-fade-in-up animation-delay-600' : ''}`}>
-          <div className="bg-slate-950/42 backdrop-blur-lg rounded-2xl p-8 border border-white/12">
-            <h3 className="text-2xl font-bold text-candy-pink mb-6 text-center">My DevOps Workflow</h3>
-            
+          <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10">
+            <h3 className="text-2xl font-bold text-orange-300 mb-6 text-center font-rajdhani">My DevOps Workflow</h3>
+
             <div className="flex flex-wrap justify-center items-center gap-4 md:gap-8">
               {[
-                { name: 'Code', icon: Code, color: 'from-blue-500 to-blue-600' },
-                { name: 'Build', icon: Settings, color: 'from-green-500 to-green-600' },
+                { name: 'Code', icon: Code, color: 'from-orange-500 to-orange-600' },
+                { name: 'Build', icon: Settings, color: 'from-amber-500 to-amber-600' },
                 { name: 'Test', icon: CheckCircle, color: 'from-yellow-500 to-yellow-600' },
-                { name: 'Deploy', icon: Container, color: 'from-purple-500 to-purple-600' },
-                { name: 'Monitor', icon: Monitor, color: 'from-red-500 to-red-600' },
+                { name: 'Deploy', icon: Container, color: 'from-orange-400 to-red-400' },
+                { name: 'Monitor', icon: Monitor, color: 'from-red-400 to-orange-500' },
               ].map((step, index) => (
                 <React.Fragment key={step.name}>
                   <div className="group flex flex-col items-center space-y-2">
-                    <div className={`w-16 h-16 bg-gradient-to-r ${step.color} rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-neon-purple`}>
-                      <step.icon size={28} className="text-white" />
+                    <div className={`w-16 h-16 bg-gradient-to-r ${step.color} rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-glow-warm`}>
+                      <step.icon size={28} className="text-black" />
                     </div>
                     <span className="text-offwhite font-medium">{step.name}</span>
                   </div>
                   {index < 4 && (
-                    <ArrowRight size={20} className="text-white/40 hidden md:block animate-pulse" />
+                    <ArrowRight size={20} className="text-orange-400/40 hidden md:block animate-pulse" />
                   )}
                 </React.Fragment>
               ))}
@@ -212,19 +209,19 @@ const Skills: React.FC = () => {
 
         {/* Certifications */}
         <div className={`opacity-0 ${isVisible ? 'animate-fade-in-up animation-delay-800' : ''}`}>
-          <div className="bg-slate-950/42 backdrop-blur-lg rounded-2xl p-8 border border-white/12">
-            <h3 className="text-2xl font-bold text-candy-pink mb-6 text-center">Certifications & Goals</h3>
-            
+          <div className="bg-white/5 backdrop-blur-xl rounded-2xl p-8 border border-white/10">
+            <h3 className="text-2xl font-bold text-orange-300 mb-6 text-center font-rajdhani">Certifications & Goals</h3>
+
             <div className="grid md:grid-cols-2 gap-4">
               {certifications.map((cert) => (
                 <div
                   key={cert}
-                  className="flex items-center space-x-3 p-3 bg-white/6 rounded-xl border border-white/12 hover:border-candy-pink/40 transition-all duration-300"
+                  className="flex items-center space-x-3 p-3 bg-white/5 rounded-xl border border-white/10 hover:border-orange-400/30 transition-all duration-300"
                 >
-                  <div className="w-8 h-8 bg-candy-pink rounded-full flex items-center justify-center flex-shrink-0 shadow-neon-pink">
-                    <CheckCircle size={16} className="text-white" />
+                  <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-amber-500 rounded-full flex items-center justify-center flex-shrink-0 shadow-glow-orange">
+                    <CheckCircle size={16} className="text-black" />
                   </div>
-                  <span className="text-offwhite/88">{cert}</span>
+                  <span className="text-orange-100/80">{cert}</span>
                 </div>
               ))}
             </div>

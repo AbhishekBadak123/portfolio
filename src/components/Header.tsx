@@ -36,18 +36,18 @@ const Header: React.FC = () => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'bg-black/20 backdrop-blur-md border-b border-white/10' 
+      isScrolled
+        ? 'bg-black/30 backdrop-blur-xl border-b border-white/10'
         : 'bg-transparent'
     }`}>
       <nav className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-r from-purple-500 to-cyan-400 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold font-rajdhani">AB</span>
+            <div className="w-8 h-8 bg-gradient-to-r from-orange-500 to-amber-400 rounded-lg flex items-center justify-center">
+              <span className="text-black font-bold font-rajdhani">AB</span>
             </div>
-            <span className="text-xl font-bold font-rajdhani bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent">
+            <span className="text-xl font-bold font-rajdhani bg-gradient-to-r from-orange-300 to-amber-300 bg-clip-text text-transparent">
               Abhishek Badak
             </span>
           </div>
@@ -61,7 +61,7 @@ const Header: React.FC = () => {
                 className="text-white/80 hover:text-white transition-colors duration-200 font-medium relative group"
               >
                 {item.name}
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 to-cyan-400 group-hover:w-full transition-all duration-300"></span>
+                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-orange-400 to-amber-400 group-hover:w-full transition-all duration-300"></span>
               </a>
             ))}
           </div>
@@ -76,7 +76,7 @@ const Header: React.FC = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/60 hover:text-white transition-colors duration-200 hover:scale-110 transform"
+                  className="text-white/60 hover:text-orange-300 transition-colors duration-200 hover:scale-110 transform"
                 >
                   <social.icon size={20} />
                 </a>
@@ -94,10 +94,10 @@ const Header: React.FC = () => {
             {/* Download Resume */}
             <button
               onClick={scrollToContact}
-              className="hidden md:flex items-center space-x-2 bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 px-4 py-2 rounded-full transition-all duration-200 transform hover:scale-105"
+              className="hidden md:flex items-center space-x-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-black px-4 py-2 rounded-full transition-all duration-200 transform hover:scale-105 shadow-glow-orange"
             >
               <Download size={16} />
-              <span className="text-sm font-medium">Resume</span>
+              <span className="text-sm font-semibold">Resume</span>
             </button>
 
             {/* Mobile Menu Toggle */}
@@ -112,14 +112,14 @@ const Header: React.FC = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-black/90 backdrop-blur-md border-b border-white/10 animate-fadeIn">
+          <div className="md:hidden absolute top-full left-0 right-0 bg-black/80 backdrop-blur-xl border-b border-white/10 animate-fadeIn">
             <div className="container mx-auto px-4 py-4">
               <div className="flex flex-col space-y-4">
                 {navItems.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
-                    className="text-white/80 hover:text-white transition-colors duration-200 font-medium py-2"
+                    className="text-white/80 hover:text-orange-300 transition-colors duration-200 font-medium py-2"
                     onClick={() => setIsMenuOpen(false)}
                   >
                     {item.name}
@@ -132,7 +132,7 @@ const Header: React.FC = () => {
                       href={social.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-white/60 hover:text-white transition-colors duration-200"
+                      className="text-white/60 hover:text-orange-300 transition-colors duration-200"
                     >
                       <social.icon size={20} />
                     </a>
@@ -140,10 +140,10 @@ const Header: React.FC = () => {
                 </div>
                 <button
                   onClick={scrollToContact}
-                  className="flex items-center space-x-2 bg-gradient-to-r from-purple-500 to-cyan-500 hover:from-purple-600 hover:to-cyan-600 px-4 py-2 rounded-full transition-all duration-200 w-fit"
+                  className="flex items-center space-x-2 bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-black px-4 py-2 rounded-full transition-all duration-200 w-fit"
                 >
                   <Download size={16} />
-                  <span className="text-sm font-medium">Download Resume</span>
+                  <span className="text-sm font-semibold">Download Resume</span>
                 </button>
               </div>
             </div>
