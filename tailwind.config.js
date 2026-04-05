@@ -17,6 +17,7 @@ export default {
         'pulse': 'pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         blob: 'blob 8s ease-in-out infinite',
         'glow-pulse': 'glow-pulse 2.8s ease-in-out infinite',
+        'float': 'float 3s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
@@ -37,6 +38,10 @@ export default {
           '45%': { opacity: '0.92', filter: 'brightness(1.08)' },
           '50%': { opacity: '0.85', filter: 'brightness(0.96)' },
           '55%': { opacity: '0.95', filter: 'brightness(1.04)' },
+        },
+        'float': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-8px)' },
         },
       },
       backdropBlur: {
